@@ -4,6 +4,8 @@
 
 var findGlobalPackages = require("find-global-packages");
 var path = require("path");
+var EventEmitter = require("events").EventEmitter;
+var eventEmitter = module.exports = new EventEmitter();
 
 function uniq(arr) {
   return arr.reduce(function (result, item) {
@@ -30,4 +32,6 @@ findGlobalPackages(function(err, dirs) {
   process.env.NODE_PATH = nodePaths.join(path.delimiter);
   // refresh paths for node
   require("module").Module._initPaths();
+  // emit the ready event in case someone needs it
+  eventEmitter.emit("ready");
 });
