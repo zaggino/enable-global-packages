@@ -1,6 +1,6 @@
 {
   "name": "enable-global-packages",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "allows you to require globally installed npm packages",
   "main": "index.js",
   "scripts": {
