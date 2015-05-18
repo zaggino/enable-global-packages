@@ -1,0 +1,27 @@
+{
+  "name": "enable-global-packages",
+  "version": "0.0.1",
+  "description": "allows you to require globally installed npm packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaggino/enable-global-packages.git"
+  },
+  "keywords": [
+    "enable",
+    "global",
+    "packages"
+  ],
+  "author": "Martin Zagora <zaggino@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zaggino/enable-global-packages/issues"
+  },
+  "homepage": "https://github.com/zaggino/enable-global-packages#readme",
+  "dependencies": {
+    "find-global-packages": "0.0.1"
+  }
+}
