@@ -18,6 +18,7 @@ function uniq(arr) {
 
 findGlobalPackages(function(err, dirs) {
   if (err) {
+    eventEmitter.emit("error", err);
     return console.error(err.stack ? err.stack : err.toString());
   }
   // get all currently defined NODE_PATHs
@@ -33,5 +34,5 @@ findGlobalPackages(function(err, dirs) {
   // refresh paths for node
   require("module").Module._initPaths();
   // emit the ready event in case someone needs it
-  eventEmitter.emit("ready");
+  eventEmitter.emit("ready", globalNodePaths);
 });
