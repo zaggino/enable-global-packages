@@ -18,8 +18,12 @@ function uniq(arr) {
 
 findGlobalPackages(function(err, dirs) {
   if (err) {
-    eventEmitter.emit("error", err);
-    return console.error(err.stack ? err.stack : err.toString());
+    if (eventEmitter.listeners("error").length > 0) {
+      eventEmitter.emit("error", err);
+    } else {
+      console.error(err.stack ? err.stack : err.toString());
+    }
+    return;
   }
   // get all currently defined NODE_PATHs
   var nodePaths = process.env.NODE_PATH ? process.env.NODE_PATH.split(path.delimiter) : [];
