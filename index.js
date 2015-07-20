@@ -7,6 +7,15 @@ var path = require("path");
 var EventEmitter = require("events").EventEmitter;
 var eventEmitter = module.exports = new EventEmitter();
 
+// make sure /usr/local/bin is in env.PATH on Mac
+if (process.platform === "darwin") {
+  var envPaths = process.env.PATH.split(path.delimiter);
+  if (envPaths.indexOf("/usr/local/bin") === -1) {
+    envPaths.push("/usr/local/bin");
+  }
+  process.env.PATH = envPaths.join(path.delimiter);
+}
+
 function uniq(arr) {
   return arr.reduce(function (result, item) {
     if (result.indexOf(item) === -1) {
